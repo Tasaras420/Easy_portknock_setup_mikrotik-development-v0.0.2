@@ -29,17 +29,16 @@ class Mikrotik_rules_attr():
         print("interface: " + str(self.interface))
     def Stages(self):
         ports = []
-        invalid = False
         i = 0
-        while i < self.stage and invalid == False:
-            if invalid == True:
-                ports = []
+        while i < self.stage:
             port = random.randint(30000,40000)
             if port in ports:
-                invalid = True
+                if i > 0:
+                    i -= 1
+                else:
+                    i = 0
             else:
-                invalid = False
-            ports.append(port)
+                ports.append(port)
             i += 1
         content = ""
         for i in range(self.stage,0,-1):
