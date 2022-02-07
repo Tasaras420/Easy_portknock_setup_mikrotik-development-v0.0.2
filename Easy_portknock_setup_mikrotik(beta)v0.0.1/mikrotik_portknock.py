@@ -1,4 +1,3 @@
-from tokenize import Number
 import methodsmik as mik
 run = "n"
 while run == "n":
